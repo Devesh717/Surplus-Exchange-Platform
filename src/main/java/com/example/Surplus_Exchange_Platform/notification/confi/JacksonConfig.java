@@ -1,4 +1,4 @@
-package com.example.Surplus_Exchange_Platform.notification.config;
+package com.example.Surplus_Exchange_Platform.notification.confi;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.context.annotation.Bean;

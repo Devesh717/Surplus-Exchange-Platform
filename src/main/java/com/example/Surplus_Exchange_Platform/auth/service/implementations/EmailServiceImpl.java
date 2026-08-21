@@ -35,11 +35,13 @@ public class EmailServiceImpl implements EmailService {
         );
 
         message.setText(
-                "Hello " + user.getName() + "," + "Please verify your email by clicking the link below:" +
-                verificationLink + " " +
-                "This verification link will expire in 24 hours." +
-                "Regards," +
-                "Surplus Exchange Platform"
+                "Hello " + user.getName() + ",\n\n" +
+                        "Please verify your email by clicking the link below:\n" +
+                        verificationLink + "\n\n" +
+                        "This verification link will expire in 24 hours.\n\n" +
+                        "Your Verification OTP is: " + token + "\n\n" +
+                        "Regards,\n" +
+                        "Surplus Exchange Platform"
         );
 
         mailSender.send(message);

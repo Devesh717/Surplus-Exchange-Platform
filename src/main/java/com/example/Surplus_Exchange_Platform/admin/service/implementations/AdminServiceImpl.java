@@ -69,12 +69,6 @@ public class AdminServiceImpl implements AdminService {
 
         boolean verified = request.getVerified();
 
-        /*
-         * Seller application approval controls:
-         *
-         * 1. Seller verification status
-         * 2. User role
-         */
         seller.setVerificationStatus(
                 verified
                         ? SellerVerificationStatus.VERIFIED
@@ -83,9 +77,6 @@ public class AdminServiceImpl implements AdminService {
 
         User applicant = seller.getSeller();
 
-        /*
-         * Only an approved seller gets SELLER privileges.
-         */
         if (verified) {
             applicant.setRole(Role.SELLER);
         } else {
@@ -95,12 +86,6 @@ public class AdminServiceImpl implements AdminService {
         userRepository.save(applicant);
         sellerRepository.save(seller);
 
-        /*
-         * Publish notification event through Kafka.
-         *
-         * The notification is sent to the seller applicant,
-         * not the admin who performed the approval.
-         */
         if (verified) {
 
             notificationProducer.publish(

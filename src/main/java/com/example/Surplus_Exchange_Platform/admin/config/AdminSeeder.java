@@ -42,7 +42,6 @@ public class AdminSeeder {
 
                 admin.setRole(Role.ADMIN);
 
-                // Admin doesn't need email verification
                 admin.setEmailVerified(true);
 
                 userRepository.save(admin);
