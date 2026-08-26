@@ -1,0 +1,5 @@
+.customers-table-page .card,.customers-table-page>div>div{background:#fff;border:1px solid #e2e8f0;border-radius:1rem;box-shadow:0 8px 24px rgba(15,23,42,.06);}
+.customers-table-page table thead{background:#eff6ff;}
+.customers-table-page table thead th{color:#334155;font-weight:700;}
+.customers-table-page table tbody tr{transition:background .15s ease;}
+.customers-table-page table tbody tr:hover{background:#f8fbff;}

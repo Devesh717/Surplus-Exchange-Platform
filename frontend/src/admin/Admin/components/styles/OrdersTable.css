@@ -1,0 +1,4 @@
+.orders-table-page .card,.orders-table-page>div>div{background:#fff;border:1px solid #e2e8f0;border-radius:1rem;box-shadow:0 8px 24px rgba(15,23,42,.06);}
+.orders-table-page table thead{background:#eff6ff;}
+.orders-table-page table thead th{color:#334155;font-weight:700;}
+.orders-table-page table tbody tr:hover{background:#f8fbff;}

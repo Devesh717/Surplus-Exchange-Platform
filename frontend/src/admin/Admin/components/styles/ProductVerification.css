@@ -1,0 +1,717 @@
+/* =========================================================
+   PAGE
+========================================================= */
+
+.product-verification-page {
+  min-height: 100%;
+  padding: 24px;
+  background: #f8fafc;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.product-verification-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 26px;
+}
+
+.product-verification-header-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #eff6ff;
+  color: #2563eb;
+}
+
+.product-verification-header p {
+  margin: 0;
+
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+
+  color: #94a3b8;
+}
+
+.product-verification-header h1 {
+  margin: 2px 0 3px;
+
+  font-size: 26px;
+  font-weight: 700;
+
+  color: #0f172a;
+}
+
+.product-verification-header span {
+  font-size: 13px;
+  color: #64748b;
+}
+
+
+/* =========================================================
+   SUMMARY
+========================================================= */
+
+.product-verification-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 16px;
+  margin-bottom: 26px;
+}
+
+.product-summary-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  min-width: 220px;
+
+  padding: 15px 18px;
+
+  background: #fff;
+
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+
+  box-shadow: 0 5px 18px rgba(15, 23, 42, 0.04);
+}
+
+.product-summary-icon {
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 11px;
+}
+
+.product-summary-icon.pending {
+  background: #fff7ed;
+  color: #ea580c;
+}
+
+.product-summary-card span {
+  display: block;
+
+  font-size: 11px;
+  color: #64748b;
+}
+
+.product-summary-card strong {
+  display: block;
+
+  margin-top: 2px;
+
+  font-size: 21px;
+  font-weight: 700;
+
+  color: #0f172a;
+}
+
+
+/* =========================================================
+   REFRESH
+========================================================= */
+
+.product-refresh-button {
+  height: 38px;
+
+  padding: 0 14px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+
+  border: 1px solid #cbd5e1;
+  border-radius: 9px;
+
+  background: #fff;
+
+  color: #334155;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: 0.15s ease;
+}
+
+.product-refresh-button:hover:not(:disabled) {
+  background: #f1f5f9;
+}
+
+.product-refresh-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+
+/* =========================================================
+   SECTION
+========================================================= */
+
+.product-verification-section {
+  margin-bottom: 28px;
+}
+
+.product-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 14px;
+}
+
+.product-section-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  color: #2563eb;
+}
+
+.product-section-title h2 {
+  margin: 0;
+
+  font-size: 17px;
+  font-weight: 700;
+
+  color: #0f172a;
+}
+
+.product-section-header p {
+  margin: 4px 0 0;
+
+  font-size: 12px;
+  color: #64748b;
+}
+
+.product-count {
+  min-width: 34px;
+  height: 34px;
+
+  padding: 0 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 10px;
+
+  background: #eff6ff;
+  color: #2563eb;
+
+  font-size: 13px;
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   CARD GRID
+========================================================= */
+
+.product-verification-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(auto-fit, minmax(360px, 1fr));
+
+  gap: 16px;
+}
+
+
+/* =========================================================
+   PRODUCT CARD
+========================================================= */
+
+.product-verification-card {
+  background: #fff;
+
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 6px 20px rgba(15, 23, 42, 0.05);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.product-verification-card:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 12px 30px rgba(15, 23, 42, 0.09);
+}
+
+
+/* =========================================================
+   CARD TOP
+========================================================= */
+
+.product-card-top {
+  display: flex;
+  align-items: flex-start;
+
+  gap: 13px;
+
+  padding: 18px;
+
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.product-card-icon {
+  flex-shrink: 0;
+
+  width: 44px;
+  height: 44px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 12px;
+
+  background: #eff6ff;
+  color: #2563eb;
+}
+
+.product-card-title {
+  min-width: 0;
+  flex: 1;
+}
+
+.product-card-title h3 {
+  margin: 0;
+
+  font-size: 15px;
+  font-weight: 700;
+
+  color: #0f172a;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.product-card-title p {
+  margin: 3px 0 0;
+
+  font-size: 11px;
+  color: #94a3b8;
+}
+
+
+/* =========================================================
+   STATUS
+========================================================= */
+
+.product-status-badge {
+  flex-shrink: 0;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+
+  padding: 5px 8px;
+
+  border-radius: 999px;
+
+  background: #fff7ed;
+  color: #c2410c;
+
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.product-status-dot {
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+
+  background: #f97316;
+}
+
+
+/* =========================================================
+   PRODUCT INFO
+========================================================= */
+
+.product-card-content {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 14px;
+
+  padding: 17px 18px;
+}
+
+.product-info {
+  min-width: 0;
+}
+
+.product-info-full {
+  grid-column: 1 / -1;
+}
+
+.product-info span {
+  display: block;
+
+  margin-bottom: 3px;
+
+  font-size: 10px;
+
+  color: #94a3b8;
+
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.product-info strong {
+  display: block;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+
+  white-space: nowrap;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  color: #334155;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.product-description {
+  padding: 0 18px 17px;
+}
+
+.product-description > span {
+  font-size: 10px;
+
+  color: #94a3b8;
+
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.product-description p {
+  margin: 4px 0 0;
+
+  font-size: 12px;
+  line-height: 1.5;
+
+  color: #475569;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   ACTIONS
+========================================================= */
+
+.product-card-actions {
+  display: flex;
+
+  gap: 9px;
+
+  padding: 14px 18px;
+
+  background: #f8fafc;
+
+  border-top: 1px solid #e2e8f0;
+}
+
+.product-card-actions button {
+  flex: 1;
+
+  height: 38px;
+
+  border-radius: 9px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 7px;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: 0.15s ease;
+}
+
+.product-card-actions button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+
+/* =========================================================
+   APPROVE
+========================================================= */
+
+.product-approve-button {
+  border: 0;
+
+  background: #2563eb;
+  color: #fff;
+}
+
+.product-approve-button:hover:not(:disabled) {
+  background: #1d4ed8;
+}
+
+
+/* =========================================================
+   REJECT
+========================================================= */
+
+.product-reject-button {
+  border: 1px solid #fecaca;
+
+  background: #fff;
+
+  color: #dc2626;
+}
+
+.product-reject-button:hover:not(:disabled) {
+  background: #fef2f2;
+}
+
+
+/* =========================================================
+   LOADING
+========================================================= */
+
+.product-verification-loading {
+  min-height: 180px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 9px;
+
+  border: 1px dashed #cbd5e1;
+
+  border-radius: 14px;
+
+  color: #64748b;
+
+  font-size: 13px;
+}
+
+
+/* =========================================================
+   EMPTY
+========================================================= */
+
+.product-verification-empty {
+  min-height: 220px;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  border: 1px dashed #cbd5e1;
+
+  border-radius: 14px;
+
+  background: #fff;
+
+  color: #94a3b8;
+
+  text-align: center;
+}
+
+.product-empty-icon {
+  width: 58px;
+  height: 58px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #ecfdf5;
+  color: #059669;
+}
+
+.product-verification-empty h3 {
+  margin: 12px 0 3px;
+
+  color: #334155;
+
+  font-size: 14px;
+}
+
+.product-verification-empty p {
+  margin: 0;
+
+  font-size: 12px;
+}
+
+
+/* =========================================================
+   ERROR
+========================================================= */
+
+.product-verification-error {
+  display: flex;
+  align-items: flex-start;
+
+  gap: 10px;
+
+  margin-bottom: 16px;
+
+  padding: 14px;
+
+  border: 1px solid #fecaca;
+
+  border-radius: 12px;
+
+  background: #fef2f2;
+
+  color: #b91c1c;
+
+  font-size: 12px;
+}
+
+.product-verification-error strong {
+  display: block;
+
+  margin-bottom: 2px;
+
+  font-size: 12px;
+}
+
+.product-verification-error p {
+  margin: 0;
+
+  color: #dc2626;
+}
+
+
+/* =========================================================
+   SPINNER
+========================================================= */
+
+.product-spin {
+  animation: product-spin 0.8s linear infinite;
+}
+
+@keyframes product-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+  .product-verification-page {
+    padding: 16px;
+  }
+
+  .product-verification-summary {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .product-summary-card {
+    width: 100%;
+  }
+
+  .product-refresh-button {
+    width: 100%;
+  }
+
+  .product-section-header {
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .product-verification-grid {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+
+@media (max-width: 480px) {
+
+  .product-verification-header {
+    align-items: flex-start;
+  }
+
+  .product-verification-header h1 {
+    font-size: 22px;
+  }
+
+  .product-card-top {
+    flex-wrap: wrap;
+  }
+
+  .product-status-badge {
+    margin-left: 57px;
+  }
+
+  .product-card-content {
+    grid-template-columns: 1fr;
+  }
+
+  .product-info-full {
+    grid-column: auto;
+  }
+
+  .product-card-actions {
+    flex-direction: column;
+  }
+
+}

@@ -1,0 +1,736 @@
+/* =========================================================
+   PAGE
+========================================================= */
+
+.seller-verification-page {
+  min-height: 100%;
+  padding: 24px;
+  background: #f8fafc;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.seller-verification-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.seller-verification-header-icon {
+  width: 50px;
+  height: 50px;
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 14px;
+
+  background: #ecfeff;
+  color: #0f766e;
+}
+
+.seller-verification-eyebrow {
+  margin: 0 0 3px;
+
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .1em;
+
+  color: #94a3b8;
+}
+
+.seller-verification-header h1 {
+  margin: 0;
+
+  font-size: 26px;
+  font-weight: 700;
+
+  color: #0f172a;
+}
+
+.seller-verification-header span {
+  display: block;
+
+  margin-top: 4px;
+
+  font-size: 13px;
+  color: #64748b;
+}
+
+
+/* =========================================================
+   SUMMARY
+========================================================= */
+
+.seller-verification-summary {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 14px;
+
+  margin-bottom: 26px;
+}
+
+.seller-summary-card {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+
+  padding: 16px 18px;
+
+  background: #fff;
+
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+
+  box-shadow:
+    0 5px 18px rgba(15, 23, 42, .04);
+}
+
+.seller-summary-icon {
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 11px;
+}
+
+.seller-summary-icon.pending {
+  background: #fff7ed;
+  color: #ea580c;
+}
+
+.seller-summary-icon.application {
+  background: #eff6ff;
+  color: #2563eb;
+}
+
+.seller-summary-card span {
+  display: block;
+
+  font-size: 11px;
+  color: #64748b;
+}
+
+.seller-summary-card strong {
+  display: block;
+
+  margin-top: 2px;
+
+  font-size: 21px;
+  font-weight: 700;
+
+  color: #0f172a;
+}
+
+
+/* =========================================================
+   SECTION HEADER
+========================================================= */
+
+.seller-applications-section {
+  margin-top: 4px;
+}
+
+.seller-section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 14px;
+}
+
+.seller-section-heading h2 {
+  margin: 0;
+
+  font-size: 17px;
+  font-weight: 700;
+
+  color: #0f172a;
+}
+
+.seller-section-heading p {
+  margin: 4px 0 0;
+
+  font-size: 12px;
+  color: #64748b;
+}
+
+.seller-application-count {
+  min-width: 34px;
+  height: 34px;
+
+  padding: 0 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 10px;
+
+  background: #e0f2fe;
+  color: #0369a1;
+
+  font-size: 13px;
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   APPLICATION GRID
+========================================================= */
+
+.seller-application-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(auto-fit, minmax(360px, 1fr));
+
+  gap: 18px;
+}
+
+
+/* =========================================================
+   APPLICATION CARD
+========================================================= */
+
+.seller-application-card {
+  overflow: hidden;
+
+  background: #fff;
+
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+
+  box-shadow:
+    0 6px 20px rgba(15, 23, 42, .05);
+
+  transition:
+    transform .2s ease,
+    box-shadow .2s ease;
+}
+
+.seller-application-card:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 12px 30px rgba(15, 23, 42, .09);
+}
+
+
+/* =========================================================
+   CARD HEADER
+========================================================= */
+
+.seller-card-header {
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  padding: 18px;
+
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.seller-card-avatar {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 12px;
+
+  background: #ecfeff;
+  color: #0f766e;
+}
+
+.seller-card-heading {
+  min-width: 0;
+  flex: 1;
+}
+
+.seller-card-heading h3 {
+  margin: 0;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  font-size: 15px;
+  font-weight: 700;
+
+  color: #0f172a;
+}
+
+.seller-card-heading p {
+  margin: 3px 0 0;
+
+  font-size: 11px;
+  color: #94a3b8;
+}
+
+
+/* =========================================================
+   PENDING BADGE
+========================================================= */
+
+.seller-pending-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+
+  padding: 5px 8px;
+
+  border-radius: 999px;
+
+  background: #fff7ed;
+  color: #c2410c;
+
+  font-size: 10px;
+  font-weight: 700;
+
+  white-space: nowrap;
+}
+
+.seller-pending-badge span {
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+
+  background: #f97316;
+}
+
+
+/* =========================================================
+   INFORMATION
+========================================================= */
+
+.seller-card-content {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 15px;
+
+  padding: 18px;
+}
+
+.seller-info-item {
+  min-width: 0;
+
+  display: flex;
+  align-items: flex-start;
+
+  gap: 9px;
+}
+
+.seller-info-icon {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 8px;
+
+  background: #f1f5f9;
+  color: #64748b;
+}
+
+.seller-info-item > div:last-child {
+  min-width: 0;
+}
+
+.seller-info-item span {
+  display: block;
+
+  margin-bottom: 3px;
+
+  font-size: 9px;
+  font-weight: 600;
+
+  text-transform: uppercase;
+  letter-spacing: .05em;
+
+  color: #94a3b8;
+}
+
+.seller-info-item strong {
+  display: block;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  color: #334155;
+}
+
+
+/* =========================================================
+   ADDRESS
+========================================================= */
+
+.seller-address {
+  display: flex;
+  align-items: flex-start;
+
+  gap: 10px;
+
+  padding: 0 18px 17px;
+}
+
+.seller-address-icon {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 8px;
+
+  background: #f1f5f9;
+  color: #64748b;
+}
+
+.seller-address > div:last-child {
+  min-width: 0;
+}
+
+.seller-address span {
+  display: block;
+
+  margin-bottom: 3px;
+
+  font-size: 9px;
+  font-weight: 600;
+
+  text-transform: uppercase;
+  letter-spacing: .05em;
+
+  color: #94a3b8;
+}
+
+.seller-address p {
+  margin: 0;
+
+  font-size: 12px;
+  line-height: 1.5;
+
+  color: #475569;
+}
+
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.seller-description {
+  margin: 0 18px 17px;
+  padding-top: 14px;
+
+  border-top: 1px solid #f1f5f9;
+}
+
+.seller-description span {
+  font-size: 9px;
+  font-weight: 600;
+
+  text-transform: uppercase;
+  letter-spacing: .05em;
+
+  color: #94a3b8;
+}
+
+.seller-description p {
+  margin: 5px 0 0;
+
+  font-size: 12px;
+  line-height: 1.5;
+
+  color: #475569;
+}
+
+
+/* =========================================================
+   ACTIONS
+========================================================= */
+
+.seller-card-actions {
+  display: flex;
+  gap: 9px;
+
+  padding: 14px 18px;
+
+  background: #f8fafc;
+
+  border-top: 1px solid #e2e8f0;
+}
+
+.seller-card-actions button {
+  flex: 1;
+
+  height: 39px;
+
+  border-radius: 9px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 7px;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    background .15s ease,
+    transform .15s ease,
+    opacity .15s ease;
+}
+
+.seller-card-actions button:active:not(:disabled) {
+  transform: scale(.98);
+}
+
+.seller-card-actions button:disabled {
+  opacity: .6;
+  cursor: not-allowed;
+}
+
+
+/* APPROVE */
+
+.seller-approve-button {
+  border: 0;
+
+  background: #0f766e;
+  color: #fff;
+}
+
+.seller-approve-button:hover:not(:disabled) {
+  background: #115e59;
+}
+
+
+/* REJECT */
+
+.seller-reject-button {
+  border: 1px solid #fecaca;
+
+  background: #fff;
+  color: #dc2626;
+}
+
+.seller-reject-button:hover:not(:disabled) {
+  background: #fef2f2;
+}
+
+
+/* =========================================================
+   LOADING
+========================================================= */
+
+.seller-verification-loading {
+  min-height: 180px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 9px;
+
+  border: 1px dashed #cbd5e1;
+  border-radius: 14px;
+
+  background: #fff;
+
+  color: #64748b;
+
+  font-size: 13px;
+}
+
+.seller-verification-spinner,
+.seller-button-spinner {
+  animation: seller-verification-spin 1s linear infinite;
+}
+
+@keyframes seller-verification-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* =========================================================
+   EMPTY
+========================================================= */
+
+.seller-verification-empty {
+  min-height: 220px;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 30px;
+
+  background: #fff;
+
+  border: 1px dashed #cbd5e1;
+  border-radius: 14px;
+
+  text-align: center;
+}
+
+.seller-empty-icon {
+  width: 52px;
+  height: 52px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #ecfdf5;
+  color: #059669;
+}
+
+.seller-verification-empty h2 {
+  margin: 12px 0 4px;
+
+  font-size: 15px;
+  font-weight: 700;
+
+  color: #334155;
+}
+
+.seller-verification-empty p {
+  max-width: 400px;
+
+  margin: 0;
+
+  font-size: 12px;
+  line-height: 1.5;
+
+  color: #94a3b8;
+}
+
+
+/* =========================================================
+   ERROR
+========================================================= */
+
+.seller-verification-error {
+  display: flex;
+  align-items: flex-start;
+
+  gap: 10px;
+
+  margin-bottom: 18px;
+  padding: 14px;
+
+  border: 1px solid #fecaca;
+  border-radius: 12px;
+
+  background: #fef2f2;
+
+  color: #b91c1c;
+}
+
+.seller-verification-error > svg {
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.seller-verification-error strong {
+  display: block;
+
+  font-size: 12px;
+}
+
+.seller-verification-error p {
+  margin: 3px 0 0;
+
+  font-size: 11px;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .seller-application-grid {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+@media (max-width: 640px) {
+
+  .seller-verification-page {
+    padding: 16px;
+  }
+
+  .seller-verification-header {
+    align-items: flex-start;
+  }
+
+  .seller-verification-header h1 {
+    font-size: 22px;
+  }
+
+  .seller-verification-summary {
+    grid-template-columns: 1fr;
+  }
+
+  .seller-card-content {
+    grid-template-columns: 1fr;
+  }
+
+  .seller-card-actions {
+    flex-direction: column;
+  }
+
+  .seller-pending-badge {
+    display: none;
+  }
+
+}

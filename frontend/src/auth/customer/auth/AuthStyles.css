@@ -1,0 +1,53 @@
+/* Auth screens use the same utility classes/design tokens as the
+   existing Surplus Exchange frontend. This file only adds small
+   shared states that are not worth duplicating in every component. */
+
+.auth-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fbfcfb;
+  padding: 40px 16px;
+}
+
+.auth-container {
+  width: 100%;
+  max-width: 400px;
+}
+
+.auth-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 32px;
+}
+
+.auth-brand-icon {
+  display: flex;
+  width: 36px;
+  height: 36px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  background: #172a24;
+  color: white;
+}
+
+.auth-message {
+  margin-bottom: 16px;
+  border-radius: 8px;
+  padding: 9px 12px;
+  font-size: 12px;
+}
+
+.auth-error {
+  background: #fef2f2;
+  color: #b91c1c;
+}
+
+.auth-success {
+  background: #f0fdf4;
+  color: #15803d;
+}
