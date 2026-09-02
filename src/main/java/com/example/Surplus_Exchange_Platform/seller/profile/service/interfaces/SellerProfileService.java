@@ -1,13 +1,13 @@
-package com.example.Surplus_Exchange_Platform.admin.profile.service.interfaces;
+package com.example.Surplus_Exchange_Platform.seller.profile.service.interfaces;
 
-import com.example.Surplus_Exchange_Platform.admin.profile.dto.request.UpdateAdminProfileRequest;
-import com.example.Surplus_Exchange_Platform.admin.profile.dto.response.AdminProfileResponse;
+import com.example.Surplus_Exchange_Platform.seller.profile.dto.request.UpdateSellerProfileRequest;
+import com.example.Surplus_Exchange_Platform.seller.profile.dto.response.SellerProfileResponse;
 
-public interface AdminProfileService {
+public interface SellerProfileService {
 
-    AdminProfileResponse getMyProfile(String adminEmail);
+    SellerProfileResponse getMyProfile(String SellerEmail);
 
-    AdminProfileResponse updateMyProfile(
-            String adminEmail,
-            UpdateAdminProfileRequest request);
+    SellerProfileResponse updateMyProfile(
+            String SellerEmail,
+            UpdateSellerProfileRequest request);
 }

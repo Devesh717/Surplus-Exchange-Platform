@@ -1,6 +1,7 @@
 package com.example.Surplus_Exchange_Platform.product.entity;
 
 import com.example.Surplus_Exchange_Platform.category.entity.Category;
+import com.example.Surplus_Exchange_Platform.product.enums.ProductVerificationStatus;
 import com.example.Surplus_Exchange_Platform.user.entity.User;
 import jakarta.persistence.*;
 
@@ -56,6 +57,10 @@ public class Product {
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "category_id", nullable = false)
     private Category category;
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
+    private ProductVerificationStatus verificationStatus = ProductVerificationStatus.PENDING;
 
     public Product() {
     }
@@ -154,5 +159,13 @@ public class Product {
 
     public void setCategory(Category category) {
         this.category = category;
+    }
+
+    public ProductVerificationStatus getVerificationStatus() {
+        return verificationStatus;
+    }
+
+    public void setVerificationStatus(ProductVerificationStatus verificationStatus) {
+        this.verificationStatus = verificationStatus;
     }
 }

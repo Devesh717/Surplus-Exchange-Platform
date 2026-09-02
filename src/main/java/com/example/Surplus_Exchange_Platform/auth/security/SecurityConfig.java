@@ -151,6 +151,15 @@ public class SecurityConfig {
                 ).permitAll()
 
                 // =====================================================
+                // EMAIL VERIFICATION LINK//
+                // =====================================================
+
+                .requestMatchers(
+                HttpMethod.GET,
+                "/api/auth/verify-email"
+                ).permitAll()
+
+                // =====================================================
                 // AUTHENTICATED AUTH APIs
                 // =====================================================
 
@@ -171,24 +180,24 @@ public class SecurityConfig {
                         "/v3/api-docs/**"
                 ).permitAll()
 
-                // =====================================================
-                // SELLER APPLICATION
-                // =====================================================
+                                // =====================================================
+                                // SELLER APPLICATION
+                                // =====================================================
 
-                /*
-                 * BUYER can apply to become SELLER.
-                 *
-                 * SELLER is also allowed in case your application
-                 * supports re-application.
-                 */
+                                /*
+                                 * BUYER can apply to become SELLER.
+                                 *
+                                 * SELLER is also allowed in case the application
+                                 * supports re-application.
+                                 */
 
-                .requestMatchers(
-                        HttpMethod.POST,
-                        "/api/seller"
-                ).hasAnyRole(
-                        "BUYER",
-                        "SELLER"
-                )
+                                .requestMatchers(
+                                        HttpMethod.POST,
+                                        "/api/seller"
+                                ).hasAnyRole(
+                                        "BUYER",
+                                        "SELLER"
+                                )
 
                 // =====================================================
                 // ADMIN
@@ -198,13 +207,13 @@ public class SecurityConfig {
                         "/api/admin/**"
                 ).hasRole("ADMIN")
 
-                // =====================================================
-                // SELLER APIs
-                // =====================================================
+                                // =====================================================
+                                // SELLER APIs
+                                // =====================================================
 
-                .requestMatchers(
-                        "/api/seller/**"
-                ).hasRole("SELLER")
+                                .requestMatchers(
+                                        "/api/seller/**"
+                                ).hasRole("SELLER")
 
                 // =====================================================
                 // BUYER APIs
@@ -274,113 +283,61 @@ public class SecurityConfig {
                         "/api/categories/**"
                 ).permitAll()
 
-                // =====================================================
-                // PRODUCT APIs
-                // =====================================================
+                                // =====================================================
+                                // PRODUCT APIs
+                                // =====================================================
 
-                /*
-                 * IMPORTANT:
-                 *
-                 * Anyone can browse products.
-                 *
-                 * Therefore:
-                 *
-                 * GET /api/products
-                 * GET /api/products/2
-                 * GET /api/products/category/2
-                 *
-                 * do NOT require JWT.
-                 */
+                                .requestMatchers(
+                                        HttpMethod.GET,
+                                        "/api/products/**"
+                                ).permitAll()
 
-                .requestMatchers(
-                        HttpMethod.GET,
-                        "/api/products/**"
-                ).permitAll()
+                                .requestMatchers(
+                                        HttpMethod.POST,
+                                        "/api/products"
+                                ).hasRole("SELLER")
 
-                /*
-                 * Only SELLER can create products.
-                 */
+                                .requestMatchers(
+                                        HttpMethod.PUT,
+                                        "/api/products/**"
+                                ).hasRole("SELLER")
 
-                .requestMatchers(
-                        HttpMethod.POST,
-                        "/api/products"
-                ).hasRole("SELLER")
+                                .requestMatchers(
+                                        HttpMethod.DELETE,
+                                        "/api/products/**"
+                                ).hasRole("SELLER")
 
-                /*
-                 * Only SELLER can update products.
-                 *
-                 * Product ownership must be checked
-                 * inside ProductService.
-                 */
+// =====================================================
+// PRODUCT SEARCH
+// =====================================================
 
-                .requestMatchers(
-                        HttpMethod.PUT,
-                        "/api/products/**"
-                ).hasRole("SELLER")
+                                .requestMatchers(
+                                        "/api/products/search/**"
+                                ).permitAll()
 
-                /*
-                 * Only SELLER can delete products.
-                 *
-                 * Product ownership must be checked
-                 * inside ProductService.
-                 */
+// =====================================================
+// PRODUCT MEDIA / IMAGES
+// =====================================================
 
-                .requestMatchers(
-                        HttpMethod.DELETE,
-                        "/api/products/**"
-                ).hasRole("SELLER")
+                                .requestMatchers(
+                                        HttpMethod.POST,
+                                        "/api/media/*/images"
+                                ).hasRole("SELLER")
 
-                // =====================================================
-                // PRODUCT SEARCH
-                // =====================================================
+                                .requestMatchers(
+                                        HttpMethod.PUT,
+                                        "/api/media/*/images/**"
+                                ).hasRole("SELLER")
 
-                /*
-                 * Product search is public.
-                 */
+                                .requestMatchers(
+                                        HttpMethod.DELETE,
+                                        "/api/media/*/images/**"
+                                ).hasRole("SELLER")
 
-                .requestMatchers(
-                        "/api/products/search/**"
-                ).permitAll()
-
-                // =====================================================
-                // PRODUCT MEDIA / IMAGES
-                // =====================================================
-
-                /*
-                 * SELLER uploads product images.
-                 */
-
-                .requestMatchers(
-                        HttpMethod.POST,
-                        "/api/media/*/images"
-                ).hasRole("SELLER")
-
-                /*
-                 * SELLER updates product images.
-                 */
-
-                .requestMatchers(
-                        HttpMethod.PUT,
-                        "/api/media/*/images/**"
-                ).hasRole("SELLER")
-
-                /*
-                 * SELLER deletes product images.
-                 */
-
-                .requestMatchers(
-                        HttpMethod.DELETE,
-                        "/api/media/*/images/**"
-                ).hasRole("SELLER")
-
-                /*
-                 * Anyone can view product images.
-                 */
-
-                .requestMatchers(
-                        HttpMethod.GET,
-                        "/api/media/**"
-                ).permitAll()
+                                .requestMatchers(
+                                        HttpMethod.GET,
+                                        "/api/media/**"
+                                ).permitAll()
 
                 // =====================================================
                 // AI

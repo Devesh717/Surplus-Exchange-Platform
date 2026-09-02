@@ -13,9 +13,9 @@ import { useNavigate } from "react-router-dom";
 
 
 import { useStore } from "../../../../Store";
-import { getProducts, getProductsByCategory, } from "../../../state/Product/Action";
+import { getProducts, getProductsByCategory, } from "../../../state/Action";
 
-import ProductCard from "../../../product/customer/components/Product/ProductCard";
+import ProductCard from "../../../customer/components/Product/ProductCard";
 
 import Navigation from "../../../../home/customer/components/Navigation/Navigation";
 import Footer from "../../../../home/customer/components/Footer/Footer";

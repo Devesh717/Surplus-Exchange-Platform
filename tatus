@@ -1,0 +1,284 @@
+warning: in the working copy of 'frontend/src/App.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/admin/Admin/api/AdminApi.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/admin/Routers/AdminRouters.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/admin/state/Admin/Action.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/admin/state/Admin/ActionType.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/admin/state/Admin/Reducer.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/auth/customer/auth/AuthModel.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/auth/customer/auth/RegisterForm.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/auth/customer/auth/VerifyEmailForm.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/auth/state/Auth/Action.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/home/customer/components/Footer/Footer.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/home/customer/components/HomeSection/FeaturedProducts.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/home/customer/components/Navigation/Navigation.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/order/components/OrderCard.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/order/pages/OrderDetailsPage.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/product/Routers/ProductRoutes.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/product/customer/components/Product/ProductCard.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/product/customer/components/Product/ProductForm.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/product/customer/pages/ProductDetailsPage/ProductDetailsPage.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/product/customer/pages/ProductPage/ProductPage.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/product/customer/pages/SellerProductsPage/CreateProductPage.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/product/customer/pages/SellerProductsPage/SellerProductsPage.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/product/media/mediaApi.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'frontend/src/seller/Routers/SellerRouters.jsx', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/main/java/com/example/Surplus_Exchange_Platform/admin/api/AdminApi.java', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/main/java/com/example/Surplus_Exchange_Platform/admin/controller/AdminController.java', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/main/java/com/example/Surplus_Exchange_Platform/admin/service/implementations/AdminServiceImpl.java', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/main/java/com/example/Surplus_Exchange_Platform/admin/service/interfaces/AdminService.java', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/main/java/com/example/Surplus_Exchange_Platform/auth/security/SecurityConfig.java', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/main/java/com/example/Surplus_Exchange_Platform/auth/service/implementations/AuthServiceImpl.java', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/main/java/com/example/Surplus_Exchange_Platform/media/controller/MediaController.java', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/main/java/com/example/Surplus_Exchange_Platform/product/api/ProductApi.java', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/main/java/com/example/Surplus_Exchange_Platform/product/controller/ProductController.java', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/main/java/com/example/Surplus_Exchange_Platform/product/entity/Product.java', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/main/java/com/example/Surplus_Exchange_Platform/product/repository/ProductRepository.java', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/main/java/com/example/Surplus_Exchange_Platform/product/service/implementations/ProductServiceImpl.java', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/main/java/com/example/Surplus_Exchange_Platform/product/service/interfaces/ProductService.java', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/main/java/com/example/Surplus_Exchange_Platform/seller/profile/api/SellerProfileApi.java', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/main/java/com/example/Surplus_Exchange_Platform/seller/profile/controller/SellerProfileController.java', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/main/java/com/example/Surplus_Exchange_Platform/seller/profile/dto/request/UpdateSellerProfileRequest.java', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/main/java/com/example/Surplus_Exchange_Platform/seller/profile/dto/response/SellerProfileResponse.java', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/main/java/com/example/Surplus_Exchange_Platform/seller/profile/service/implementations/SellerProfileServiceImpl.java', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/main/java/com/example/Surplus_Exchange_Platform/seller/profile/service/interfaces/SellerProfileService.java', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/main/java/com/example/Surplus_Exchange_Platform/seller/repository/SellerRepository.java', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/main/java/com/example/Surplus_Exchange_Platform/user/dashboard/dto/response/UserDashboardResponse.java', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'src/main/java/com/example/Surplus_Exchange_Platform/user/dashboard/service/implementations/UserDashboardServiceImpl.java', LF will be replaced by CRLF the next time Git touches it
+[1mdiff --git a/frontend/src/App.js b/frontend/src/App.js[m
+[1mindex 0e6130b..c0eb02a 100644[m
+[1m--- a/frontend/src/App.js[m
+[1m+++ b/frontend/src/App.js[m
+[36m@@ -34,6 +34,19 @@[m [mimport AIAssistantPage from "./ai/pages/AiPage/AiPage";[m
+ import SellerApplicationPage from "./seller/pages/SellerApplicationPage";[m
+ import SellerApplicationSubmittedPage from "./seller/pages/SellerApplicationSubmittedPage";[m
+ [m
+[32m+[m[32mimport WishlistPage from "./wishlist/customer/pages/WishlistPage";[m
+[32m+[m
+[32m+[m[32mimport AboutPage from "./home/customer/pages/About/AboutPage";[m
+[32m+[m
+[32m+[m[32mimport HowItWorksPage from "./home/customer/pages/HowItWorks/HowItWorks";[m
+[32m+[m[32mimport ContactPage from "./home/customer/pages/Contact/ContactPage";[m
+[32m+[m[32mimport HelpCentrePage from "./home/customer/pages/HelpCentre/HelpCentre";[m
+[32m+[m[32mimport AboutSurplusExchangePage from "./home/customer/pages/AboutSuplusExchange/AboutSurplusExchangePage";[m
+[32m+[m
+[32m+[m[32mimport UserProfilePage[m
+[32m+[m[32m  from "./user/profile/pages/UserProfile/UserProfilePage";[m
+[32m+[m
+[32m+[m
+ import "./App.css";[m
+ [m
+ [m
+[36m@@ -172,6 +185,48 @@[m [mfunction App() {[m
+             element={<HomePage />}[m
+           />[m
+ [m
+[32m+[m[32m          {/* ==================================================[m
+[32m+[m[32m              ABOUT[m
+[32m+[m[32m          ================================================== */}[m
+[32m+[m[32m          <Route[m
+[32m+[m[32m  path="/about"[m
+[32m+[m[32m  element={<AboutPage />}[m
+[32m+[m[32m/>[m
+[32m+[m
+[32m+[m
+[32m+[m[32m{/* ==================================================[m
+[32m+[m[32m              HOW IT WORKS[m
+[32m+[m[32m          ================================================== */}[m
+[32m+[m[32m<Route[m
+[32m+[m[32m  path="/how-it-works"[m
+[32m+[m[32m  element={<HowItWorksPage />}[m
+[32m+[m[32m/>[m
+[32m+[m
+[32m+[m[32m{/* ==================================================[m
+[32m+[m[32m              CONTACT[m
+[32m+[m[32m          ================================================== */}[m
+[32m+[m
+[32m+[m[32m<Route[m
+[32m+[m[32m  path="/contact"[m
+[32m+[m[32m  element={<ContactPage />}[m
+[32m+[m[32m/>[m
+[32m+[m
+[32m+[m[32m{/* ==================================================[m
+[32m+[m[32m              HELP CENTRE[m
+[32m+[m[32m          ================================================== */}[m
+[32m+[m
+[32m+[m[32m<Route path="/help-centre" element={<HelpCentrePage />} />[m
+[32m+[m
+[32m+[m
+[32m+[m[32m{/* ==================================================[m
+[32m+[m[32m              ABOUT SURPLUS EXCHANGE[m
+[32m+[m[32m          ================================================== */}[m
+[32m+[m
+[32m+[m[32m<Route[m
+[32m+[m[32m  path="/about-surplus-exchange"[m
+[32m+[m[32m  element={<AboutSurplusExchangePage />}[m
+[32m+[m[32m/>[m
+[32m+[m
+ [m
+           {/* ==================================================[m
+               AUTH[m
+[36m@@ -286,6 +341,15 @@[m [mfunction App() {[m
+             element={<AIAssistantPage />}[m
+           />[m
+ [m
+[32m+[m[32m          {/* ==================================================[m
+[32m+[m[32m              WISHLIST[m
+[32m+[m[32m          ================================================== */}[m
+[32m+[m[32m          <Route[m[41m [m
+[32m+[m[32m          path="/wishlist"[m[41m [m
+[32m+[m[32m          element={<WishlistPage />}[m[41m [m
+[32m+[m[32m          />[m
+[32m+[m
+[32m+[m
+ [m
+           {/* ==================================================[m
+               BECOME SELLER[m
+[36m@@ -355,6 +419,18 @@[m [mfunction App() {[m
+             }[m
+           />[m
+ [m
+[32m+[m[32m          {/* USER DASHBOARD */}[m
+[32m+[m[32m<Route[m
+[32m+[m[32m  path="/dashboard"[m
+[32m+[m[32m  element={<UserDashboardPage />}[m
+[32m+[m[32m/>[m
+[32m+[m
+[32m+[m[32m{/* USER PROFILE */}[m
+[32m+[m[32m<Route[m
+[32m+[m[32m  path="/user/profile"[m
+[32m+[m[32m  element={<UserProfilePage />}[m
+[32m+[m[32m/>[m
+[32m+[m
+ [m
+           {/* ==================================================[m
+               UNAUTHORIZED[m
+[1mdiff --git a/frontend/src/Store.js b/frontend/src/Store.js[m
+[1mindex 86f9266..812f060 100644[m
+[1m--- a/frontend/src/Store.js[m
+[1m+++ b/frontend/src/Store.js[m
+[36m@@ -14,7 +14,7 @@[m [mimport authReducer from "./auth/state/Auth/Reducer";[m
+ [m
+ import productReducer, {[m
+   productInitialState,[m
+[31m-} from "./product/state/Product/Reducer";[m
+[32m+[m[32m} from "./product/state/Reducer";[m
+ [m
+ import cartReducer, {[m
+   cartInitialState,[m
+[36m@@ -47,6 +47,18 @@[m [mimport sellerReducer, {[m
+   sellerInitialState,[m
+ } from "./seller/state/Seller/Reducer";[m
+ [m
+[32m+[m[32mimport wishlistReducer, {[m
+[32m+[m[32m  wishlistInitialState,[m
+[32m+[m[32m} from "./wishlist/state/Reducer";[m
+[32m+[m
+[32m+[m[32mimport userProfileReducer, {[m
+[32m+[m[32m  userProfileInitialState,[m
+[32m+[m[32m} from "./user/profile/state/UserProfile/Reducer";[m
+[32m+[m
+[32m+[m[32mimport reviewReducer, {[m
+[32m+[m[32m  reviewInitialState,[m
+[32m+[m[32m} from "./review/state/Reducer";[m
+[32m+[m
+ const StoreContext = createContext(null);[m
+ [m
+ const initialState = {[m
+[36m@@ -101,7 +113,18 @@[m [mconst initialState = {[m
+   ai: aiInitialState,[m
+ [m
+   // SELLER[m
+[31m-  seller: sellerInitialState[m
+[32m+[m[32m  seller: sellerInitialState,[m
+[32m+[m
+[32m+[m[32m  // WISHLIST[m
+[32m+[m[32m  wishlist: wishlistInitialState,[m
+[32m+[m[32m//USER DASHBOARD[m
+[32m+[m[32muserDashboard: userDashboardInitialState,[m
+[32m+[m
+[32m+[m[32m// USER PROFILE[m
+[32m+[m[32muserProfile: userProfileInitialState,[m
+[32m+[m
+[32m+[m[32m// REVIEW[m
+[32m+[m[32mreview: reviewInitialState,[m
+ };[m
+ [m
+ function rootReducer(state, action) {[m
+[36m@@ -184,6 +207,26 @@[m [mseller: sellerReducer([m
+       state.seller,[m
+       action[m
+     ),[m
+[32m+[m
+[32m+[m[32m    wishlist: wishlistReducer([m
+[32m+[m[32m      state.wishlist, action[m
+[32m+[m[32m    ),[m
+[32m+[m
+[32m+[m[32m    userDashboard: userDashboardReducer([m
+[32m+[m[32m  state.userDashboard,[m
+[32m+[m[32m  action[m
+[32m+[m[32m),[m
+[32m+[m
+[32m+[m[32muserProfile: userProfileReducer([m
+[32m+[m[32m  state.userProfile,[m
+[32m+[m[32m  action[m
+[32m+[m[32m),[m
+[32m+[m
+[32m+[m[32mreview: reviewReducer([m
+[32m+[m[32m  state.review,[m
+[32m+[m[32m  action[m
+[32m+[m[32m),[m
+[32m+[m
+   };[m
+ [m
+   console.log("================================");[m
+[36m@@ -365,4 +408,15 @@[m [mexport function useSellerState() {[m
+   const { state } = useStore();[m
+ [m
+   return state.seller;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32mexport function useUserProfileState() {[m
+[32m+[m[32m  const { state } = useStore();[m
+[32m+[m
+[32m+[m[32m  return state.userProfile;[m
+[32m+[m[32m}[m
+[32m+[m
+[32m+[m[32mexport function useReviewState() {[m
+[32m+[m[32m  const { state } = useStore();[m
+[32m+[m[32m  return state.review;[m
+ }[m
+\ No newline at end of file[m
+[1mdiff --git a/frontend/src/admin/Admin/api/AdminApi.js b/frontend/src/admin/Admin/api/AdminApi.js[m
+[1mindex 83ef91a..744c435 100644[m
+[1m--- a/frontend/src/admin/Admin/api/AdminApi.js[m
+[1m+++ b/frontend/src/admin/Admin/api/AdminApi.js[m
+[36m@@ -90,20 +90,23 @@[m [mexport const AdminApi = {[m
+     }),[m
+ [m
+   // ==============================[m
+[31m-  // PRODUCT VERIFICATION[m
+[31m-  // ==============================[m
+[32m+[m[32m// PRODUCT VERIFICATION[m
+[32m+[m[32m// ==============================[m
+ [m
+[31m-  getPendingProducts: async () => {[m
+[31m-    const data = await request("/admin/products/pending");[m
+[32m+[m[32mgetPendingProducts: async () => {[m
+[32m+[m[32m  const data = await request("/admin/products/pending");[m
+ [m
+[31m-    return normalizeList(data);[m
+[31m-  },[m
+[32m+[m[32m  return normalizeList(data);[m
+[32m+[m[32m},[m
+ [m
+[31m-  verifyProduct: (productId, data) =>[m
+[31m-    request(`/admin/products/${productId}/verification`, {[m
+[31m-      method: "PUT",[m
+[31m-      body: JSON.stringify(data),[m
+[31m-    }),[m
+[32m+[m[32mgetProduct: (productId) =>[m
+[32m+[m[32m  request(`/admin/products/${productId}`),[m
+[32m+[m
+[32m+[m[32mverifyProduct: (productId, data) =>[m
+[32m+[m[32m  request(`/admin/products/${productId}/verification`, {[m
+[32m+[m[32m    

@@ -38,6 +38,7 @@ public class UserDashboardServiceImpl
 
         return new UserDashboardResponse(
                 user.getId(),
+                user.getName(),
                 user.getEmail(),
                 user.getRole(),
                 totalOrders

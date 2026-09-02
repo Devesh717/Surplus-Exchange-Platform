@@ -156,7 +156,8 @@ public class AuthServiceImpl implements AuthService {
             return new LoginResponse(
                     token,
                     "Login successful",
-                    user.getRole().name()
+                    user.getRole().name(),
+                    user.getName()
             );
 
         } catch (BadCredentialsException e) {

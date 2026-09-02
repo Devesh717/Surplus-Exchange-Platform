@@ -7,6 +7,7 @@ import CustomersTable from "../Admin/components/CustomersTable";
 
 import SellerVerification from "../Admin/components/SellerVerification";
 import ProductVerification from "../Admin/components/ProductVerification";
+import AdminProductDetailsPage from "../Admin/pages/AdminProductDetails/AdminProductDetailsPage ";
 
 import OrdersTable from "../Admin/components/OrdersTable";
 import AdminProfile from "../Admin/components/AdminProfile";
@@ -58,6 +59,11 @@ export default function AdminRouters() {
           path="verification/products"
           element={<ProductVerification />}
         />
+        
+        <Route
+  path="products/:id"
+  element={<AdminProductDetailsPage />}
+/>
 
         {/* /admin/orders */}
         <Route

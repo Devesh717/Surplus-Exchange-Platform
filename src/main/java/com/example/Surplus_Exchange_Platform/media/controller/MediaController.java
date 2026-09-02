@@ -3,6 +3,7 @@ package com.example.Surplus_Exchange_Platform.media.controller;
 import com.example.Surplus_Exchange_Platform.media.api.MediaApi;
 import com.example.Surplus_Exchange_Platform.media.dto.response.ProductImageResponse;
 import com.example.Surplus_Exchange_Platform.media.service.interfaces.MediaService;
+
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
@@ -12,7 +13,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/products")
+@RequestMapping("/api/media")
 public class MediaController implements MediaApi {
 
     private final MediaService mediaService;
@@ -21,10 +22,15 @@ public class MediaController implements MediaApi {
         this.mediaService = mediaService;
     }
 
+    // =====================================================
+    // UPLOAD PRODUCT IMAGE
+    // =====================================================
+
     @Override
     @PostMapping(
             value = "/{productId}/images",
-            consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+            consumes = MediaType.MULTIPART_FORM_DATA_VALUE
+    )
     public ResponseEntity<ProductImageResponse> upload(
             @PathVariable Long productId,
             @RequestParam("file") MultipartFile file,
@@ -33,19 +39,36 @@ public class MediaController implements MediaApi {
 
         System.out.println("========== MEDIA UPLOAD ==========");
         System.out.println("PRODUCT ID = " + productId);
-        System.out.println("FILE = " + file.getOriginalFilename());
-        System.out.println("FILE SIZE = " + file.getSize());
-        System.out.println("PRIMARY = " + primaryImage);
-        System.out.println("USER = " + authentication.getName());
+        System.out.println(
+                "FILE = " +
+                        file.getOriginalFilename()
+        );
+        System.out.println(
+                "FILE SIZE = " +
+                        file.getSize()
+        );
+        System.out.println(
+                "PRIMARY = " +
+                        primaryImage
+        );
+        System.out.println(
+                "USER = " +
+                        authentication.getName()
+        );
 
         return ResponseEntity.ok(
                 mediaService.uploadProductImage(
                         authentication.getName(),
                         productId,
                         file,
-                        primaryImage)
+                        primaryImage
+                )
         );
     }
+
+    // =====================================================
+    // GET PRODUCT IMAGES
+    // =====================================================
 
     @Override
     @GetMapping("/{productId}/images")
@@ -53,8 +76,13 @@ public class MediaController implements MediaApi {
             @PathVariable Long productId) {
 
         return ResponseEntity.ok(
-                mediaService.getProductImages(productId));
+                mediaService.getProductImages(productId)
+        );
     }
+
+    // =====================================================
+    // DELETE IMAGE
+    // =====================================================
 
     @Override
     @DeleteMapping("/{productId}/images/{imageId}")
@@ -66,10 +94,15 @@ public class MediaController implements MediaApi {
         mediaService.deleteProductImage(
                 authentication.getName(),
                 productId,
-                imageId);
+                imageId
+        );
 
         return ResponseEntity.ok().build();
     }
+
+    // =====================================================
+    // SET PRIMARY IMAGE
+    // =====================================================
 
     @Override
     @PutMapping("/{productId}/images/{imageId}/primary")
@@ -81,7 +114,8 @@ public class MediaController implements MediaApi {
         mediaService.setPrimaryImage(
                 authentication.getName(),
                 productId,
-                imageId);
+                imageId
+        );
 
         return ResponseEntity.ok().build();
     }

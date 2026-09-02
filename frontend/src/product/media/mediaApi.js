@@ -1,7 +1,7 @@
 import axios from "axios";
 import API_BASE_URL from "../../admin/config/apiConfig";
 
-const MEDIA_URL = `${API_BASE_URL}/products`;
+const MEDIA_URL = `${API_BASE_URL}/media`;
 
 function authConfig() {
   const token = localStorage.getItem("se_token");

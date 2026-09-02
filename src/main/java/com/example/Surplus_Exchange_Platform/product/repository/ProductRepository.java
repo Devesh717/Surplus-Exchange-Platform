@@ -1,9 +1,12 @@
 package com.example.Surplus_Exchange_Platform.product.repository;
 
+import com.example.Surplus_Exchange_Platform.product.enums.ProductVerificationStatus;
 import com.example.Surplus_Exchange_Platform.product.entity.Product;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
+
+import java.util.List;
 
 public interface ProductRepository
         extends JpaRepository<Product, Long> {
@@ -37,4 +40,8 @@ public interface ProductRepository
     long countByVerifiedTrue();
 
     long countByVerifiedFalse();
+
+    List<Product> findByVerificationStatus(
+            ProductVerificationStatus productVerificationStatus
+    );
 }

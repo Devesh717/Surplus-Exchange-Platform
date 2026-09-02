@@ -1,29 +1,29 @@
-package com.example.Surplus_Exchange_Platform.admin.profile.controller;
+package com.example.Surplus_Exchange_Platform.seller.profile.controller;
 
-import com.example.Surplus_Exchange_Platform.admin.profile.api.AdminProfileApi;
-import com.example.Surplus_Exchange_Platform.admin.profile.dto.request.UpdateAdminProfileRequest;
-import com.example.Surplus_Exchange_Platform.admin.profile.dto.response.AdminProfileResponse;
-import com.example.Surplus_Exchange_Platform.admin.profile.service.interfaces.AdminProfileService;
+import com.example.Surplus_Exchange_Platform.seller.profile.api.SellerProfileApi;
+import com.example.Surplus_Exchange_Platform.seller.profile.dto.request.UpdateSellerProfileRequest;
+import com.example.Surplus_Exchange_Platform.seller.profile.dto.response.SellerProfileResponse;
+import com.example.Surplus_Exchange_Platform.seller.profile.service.interfaces.SellerProfileService;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/admin/profile")
-public class AdminProfileController
-        implements AdminProfileApi {
+@RequestMapping("/api/seller/profile")
+public class SellerProfileController
+        implements SellerProfileApi {
 
-    private final AdminProfileService profileService;
+    private final SellerProfileService profileService;
 
-    public AdminProfileController(
-            AdminProfileService profileService) {
+    public SellerProfileController(
+            SellerProfileService profileService) {
         this.profileService = profileService;
     }
 
     @Override
     @GetMapping
-    public ResponseEntity<AdminProfileResponse> getMyProfile(
+    public ResponseEntity<SellerProfileResponse> getMyProfile(
             Authentication authentication) {
 
         return ResponseEntity.ok(
@@ -33,8 +33,8 @@ public class AdminProfileController
 
     @Override
     @PutMapping
-    public ResponseEntity<AdminProfileResponse> updateMyProfile(
-            @Valid @RequestBody UpdateAdminProfileRequest request,
+    public ResponseEntity<SellerProfileResponse> updateMyProfile(
+            @Valid @RequestBody UpdateSellerProfileRequest request,
             Authentication authentication) {
 
         return ResponseEntity.ok(

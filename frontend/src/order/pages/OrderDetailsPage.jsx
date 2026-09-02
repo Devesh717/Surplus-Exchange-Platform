@@ -1,10 +1,11 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
   ArrowLeft,
   CalendarDays,
   Loader2,
   Package,
   XCircle,
+  Star
 } from "lucide-react";
 import { useNavigate, useParams } from "react-router-dom";
 
@@ -16,10 +17,10 @@ import {
   getOrderDetails,
 } from "../state/Order/Action";
 
-import OrderItems from "../components/OrderItems";
 import OrderStatusBadge from "../components/OrderStatusBadge";
 import Navigation from "../../home/customer/components/Navigation/Navigation";
 import Footer from "../../home/customer/components/Footer/Footer";
+import ReviewForm from "../../review/components/ReviewForm";
 
 function formatINR(value) {
   return `₹${Number(value || 0).toLocaleString("en-IN", {
@@ -49,6 +50,8 @@ export default function OrderDetailsPage() {
 
   const orderState = useOrdersState();
   const order = orderState.selectedOrder;
+
+    const [reviewItem, setReviewItem] = useState(null);
 
   useEffect(() => {
     if (!orderId) return;
@@ -160,8 +163,62 @@ export default function OrderDetailsPage() {
 
             <div className="mt-6 grid gap-6 lg:grid-cols-3">
               <div className="space-y-6 lg:col-span-2">
-                <OrderItems items={order.items || []} />
+<div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+  <div className="flex items-center justify-between">
+    <h2 className="text-lg font-black text-slate-900">
+      Products
+    </h2>
 
+    <span className="text-sm font-semibold text-slate-500">
+      {order.items?.length || 0} product
+      {(order.items?.length || 0) === 1 ? "" : "s"}
+    </span>
+  </div>
+
+  <div className="mt-5 space-y-4">
+    {order.items?.map((item) => (
+      <div
+        key={item.id}
+        className="rounded-2xl border border-slate-100 bg-slate-50 p-4"
+      >
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+
+          <div>
+            <h3 className="font-bold text-slate-900">
+              {item.productName}
+            </h3>
+
+            <div className="mt-2 flex flex-wrap gap-3 text-sm text-slate-500">
+              <span>
+                Quantity: {item.quantity}
+              </span>
+
+              <span>
+                Unit price: {formatINR(item.unitPrice)}
+              </span>
+
+              <span>
+                Subtotal: {formatINR(item.subtotal)}
+              </span>
+            </div>
+          </div>
+
+          {order.status === "DELIVERED" && (
+            <button
+              type="button"
+              onClick={() => setReviewItem(item)}
+              className="inline-flex shrink-0 items-center justify-center gap-2 rounded-xl border border-blue-200 bg-blue-50 px-4 py-2.5 text-sm font-bold text-blue-700 transition hover:border-blue-300 hover:bg-blue-100"
+            >
+              <Star className="h-4 w-4" />
+              Write a Review
+            </button>
+          )}
+
+        </div>
+      </div>
+    ))}
+  </div>
+</div>
                 <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
                   <h2 className="text-lg font-black text-slate-900">
                     Order timeline
@@ -282,6 +339,17 @@ export default function OrderDetailsPage() {
           </>
         )}
       </main>
+
+      {reviewItem && (
+        <ReviewForm
+          productId={reviewItem.productId}
+          productName={reviewItem.productName}
+          onClose={() => setReviewItem(null)}
+          onSuccess={() => {
+            setReviewItem(null);
+          }}
+        />
+      )}
 
       <Footer />
     </div>

@@ -30,19 +30,22 @@ export default function RegisterForm() {
     setError("");
 
     try {
-      /*
-       * This object is sent directly to:
-       *
-       * POST /api/auth/register
-       *
-       * or whatever endpoint is configured in AuthModel.
-       */
       const response = await register(form);
 
+      /*
+       * Do NOT navigate to login here.
+       *
+       * The user must verify the email first.
+       *
+       * We temporarily pass the password through router state
+       * so VerifyEmailForm can automatically log the user in
+       * after successful verification.
+       */
       navigate("/verify-email", {
         replace: true,
         state: {
           email: form.email,
+          password: form.password,
           message:
             response?.message ||
             "Registration successful. Please verify your email.",
@@ -61,6 +64,7 @@ export default function RegisterForm() {
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50 px-4 py-10">
       <div className="mx-auto flex min-h-[calc(100vh-5rem)] max-w-md items-center justify-center">
         <div className="w-full">
+
           {/* Brand */}
           <div className="mb-7 text-center">
             <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-600 to-indigo-600 text-white shadow-lg shadow-blue-200">
@@ -81,7 +85,7 @@ export default function RegisterForm() {
             onSubmit={handleSubmit}
             className="rounded-2xl border border-gray-200 bg-white p-7 shadow-xl shadow-gray-200/60"
           >
-            {/* Error */}
+
             {error && (
               <div className="mb-5 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm font-medium text-red-700">
                 {error}
@@ -186,7 +190,7 @@ export default function RegisterForm() {
             <button
               type="submit"
               disabled={loading}
-              className="flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 px-4 py-3 font-semibold text-white shadow-lg shadow-blue-200 transition hover:-translate-y-0.5 hover:from-blue-700 hover:to-indigo-700 disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0"
+              className="flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 px-4 py-3 font-semibold text-white shadow-lg shadow-blue-200 transition hover:-translate-y-0.5 hover:from-blue-700 hover:to-indigo-700 disabled:cursor-not-allowed disabled:opacity-60"
             >
               {loading && (
                 <Loader2

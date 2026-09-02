@@ -13,6 +13,7 @@ import {
 const TOKEN_KEY = "se_token";
 const ROLE_KEY = "se_role";
 const USER_ID_KEY = "se_user_id";
+const NAME_KEY = "se_name";
 
 async function request(path, options = {}) {
   const token = localStorage.getItem(TOKEN_KEY);
@@ -139,22 +140,53 @@ export const loginUser = (credentials) => async (dispatch) => {
   dispatch({ type: AUTH_LOGIN_REQUEST });
 
   try {
+    console.log("========== LOGIN START ==========");
+    console.log("Login credentials:", credentials);
+
     const response = await authApi.login(credentials);
+
+    console.log("LOGIN API RESPONSE:", response);
+    console.log("Response token:", response?.token);
+    console.log("Response role:", response?.role);
+    console.log("Response userId:", response?.userId);
+    console.log("Response name:", response?.name);
+    console.log("Response email:", response?.email);
 
     localStorage.setItem(TOKEN_KEY, response.token);
     localStorage.setItem(ROLE_KEY, response.role);
+
+    if (response?.userId) {
+      localStorage.setItem(USER_ID_KEY, response.userId);
+    }
+
+    if (response?.name) {
+      localStorage.setItem("NAME_KEY", response.name);
+    }
+
+    console.log("========== AFTER LOCAL STORAGE ==========");
+    console.log("se_token:", localStorage.getItem("se_token"));
+    console.log("se_role:", localStorage.getItem("se_role"));
+    console.log("se_user_id:", localStorage.getItem("se_user_id"));
+    console.log("se_name:", localStorage.getItem("NAME_KEY"));
 
     dispatch({
       type: AUTH_LOGIN_SUCCESS,
       payload: response,
     });
 
+    window.dispatchEvent(new Event("auth-changed"));
+
+    console.log("========== LOGIN END ==========");
+
     return response;
   } catch (error) {
+    console.error("LOGIN ERROR:", error);
+
     dispatch({
       type: AUTH_LOGIN_FAILURE,
       payload: error.message,
     });
+
     throw error;
   }
 };

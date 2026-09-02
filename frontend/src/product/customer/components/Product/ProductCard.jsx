@@ -1,7 +1,8 @@
 import React from "react";
-import { ArrowUpRight, Tag } from "lucide-react";
+import { ArrowUpRight, Tag, Heart } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import ProductImages from "../ProductImages/ProductImages";
+import WishlistButton from "../../../../wishlist/customer/components/WishlistButton";
 
 const conditionStyles = {
   NEW: "bg-emerald-50 text-emerald-700 ring-emerald-200",
@@ -45,20 +46,28 @@ export default function ProductCard({ product }) {
       className="group cursor-pointer overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition duration-300 hover:-translate-y-1 hover:border-blue-200 hover:shadow-xl"
     >
       <div className="relative flex h-48 items-center justify-center overflow-hidden bg-gradient-to-br from-slate-100 via-blue-50 to-indigo-100">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(37,99,235,0.18),_transparent_45%)]" />
+  <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(37,99,235,0.18),_transparent_45%)]" />
 
-        {discount > 0 && (
-          <span className="absolute left-4 top-4 rounded-full bg-blue-600 px-3 py-1 text-xs font-bold text-white shadow">
-            {discount}% OFF
-          </span>
-        )}
+  {discount > 0 && (
+    <span className="absolute left-4 top-4 z-10 rounded-full bg-blue-600 px-3 py-1 text-xs font-bold text-white shadow">
+      {discount}% OFF
+    </span>
+  )}
 
-        <ProductImages
-          productId={product.id}
-          productName={product.name}
-          className="h-full w-full object-cover transition duration-300 group-hover:scale-105"
-        />
-      </div>
+  {/* Wishlist */}
+  <div className="absolute right-4 top-4 z-10">
+  <WishlistButton
+    productId={product.id}
+    className="h-9 w-9 rounded-full p-0"
+  />
+</div>
+
+  <ProductImages
+    productId={product.id}
+    productName={product.name}
+    className="h-full w-full object-cover transition duration-300 group-hover:scale-105"
+  />
+</div>
 
       <div className="p-5">
         <div className="mb-3 flex items-center justify-between gap-3">

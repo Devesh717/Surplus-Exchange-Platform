@@ -3,6 +3,7 @@ package com.example.Surplus_Exchange_Platform.admin.service.implementations;
 import com.example.Surplus_Exchange_Platform.admin.dto.request.UpdateVerificationRequest;
 import com.example.Surplus_Exchange_Platform.admin.dto.response.AdminUserResponse;
 import com.example.Surplus_Exchange_Platform.admin.dto.response.VerificationResponse;
+import com.example.Surplus_Exchange_Platform.product.enums.ProductVerificationStatus;
 import com.example.Surplus_Exchange_Platform.admin.service.interfaces.AdminService;
 import com.example.Surplus_Exchange_Platform.notification.entity.NotificationType;
 import com.example.Surplus_Exchange_Platform.notification.kafka.NotificationProducer;
@@ -18,6 +19,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 @Service
 public class AdminServiceImpl implements AdminService {
@@ -177,5 +180,32 @@ public class AdminServiceImpl implements AdminService {
                         ? "Product listing verified successfully"
                         : "Product listing rejected"
         );
+    }
+
+    @Override
+    public List<Seller> getPendingSellerApplications() {
+
+        return sellerRepository.findByVerificationStatus(
+                SellerVerificationStatus.PENDING
+        );
+    }
+
+    @Override
+    public List<Product> getPendingProducts() {
+
+        return productRepository.findByVerificationStatus(
+                ProductVerificationStatus.PENDING
+        );
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public Product getProductById(Long productId) {
+
+        return productRepository
+                .findById(productId)
+                .orElseThrow(() ->
+                        new IllegalArgumentException(
+                                "Product not found"));
     }
 }

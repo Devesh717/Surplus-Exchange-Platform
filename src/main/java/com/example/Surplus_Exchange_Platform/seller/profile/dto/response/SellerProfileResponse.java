@@ -1,8 +1,8 @@
-package com.example.Surplus_Exchange_Platform.admin.profile.dto.response;
+package com.example.Surplus_Exchange_Platform.seller.profile.dto.response;
 
 import com.example.Surplus_Exchange_Platform.user.entity.Role;
 
-public class AdminProfileResponse {
+public class SellerProfileResponse {
 
     private Long id;
     private String name;
@@ -11,7 +11,7 @@ public class AdminProfileResponse {
     private Role role;
     private boolean emailVerified;
 
-    public AdminProfileResponse(
+    public SellerProfileResponse(
             Long id,
             String name,
             String email,

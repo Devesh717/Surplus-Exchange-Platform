@@ -14,7 +14,7 @@ import authReducer from "./auth/state/Auth/Reducer";
 
 import productReducer, {
   productInitialState,
-} from "./product/state/Product/Reducer";
+} from "./product/state/Reducer";
 
 import cartReducer, {
   cartInitialState,
@@ -46,6 +46,18 @@ import aiReducer, {
 import sellerReducer, {
   sellerInitialState,
 } from "./seller/state/Seller/Reducer";
+
+import wishlistReducer, {
+  wishlistInitialState,
+} from "./wishlist/state/Reducer";
+
+import userProfileReducer, {
+  userProfileInitialState,
+} from "./user/profile/state/UserProfile/Reducer";
+
+import reviewReducer, {
+  reviewInitialState,
+} from "./review/state/Reducer";
 
 const StoreContext = createContext(null);
 
@@ -101,7 +113,18 @@ const initialState = {
   ai: aiInitialState,
 
   // SELLER
-  seller: sellerInitialState
+  seller: sellerInitialState,
+
+  // WISHLIST
+  wishlist: wishlistInitialState,
+//USER DASHBOARD
+userDashboard: userDashboardInitialState,
+
+// USER PROFILE
+userProfile: userProfileInitialState,
+
+// REVIEW
+review: reviewInitialState,
 };
 
 function rootReducer(state, action) {
@@ -184,6 +207,26 @@ seller: sellerReducer(
       state.seller,
       action
     ),
+
+    wishlist: wishlistReducer(
+      state.wishlist, action
+    ),
+
+    userDashboard: userDashboardReducer(
+  state.userDashboard,
+  action
+),
+
+userProfile: userProfileReducer(
+  state.userProfile,
+  action
+),
+
+review: reviewReducer(
+  state.review,
+  action
+),
+
   };
 
   console.log("================================");
@@ -365,4 +408,15 @@ export function useSellerState() {
   const { state } = useStore();
 
   return state.seller;
+}
+
+export function useUserProfileState() {
+  const { state } = useStore();
+
+  return state.userProfile;
+}
+
+export function useReviewState() {
+  const { state } = useStore();
+  return state.review;
 }

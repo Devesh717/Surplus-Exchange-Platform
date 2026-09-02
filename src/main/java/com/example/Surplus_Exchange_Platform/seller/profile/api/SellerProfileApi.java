@@ -1,7 +1,7 @@
-package com.example.Surplus_Exchange_Platform.admin.profile.api;
+package com.example.Surplus_Exchange_Platform.seller.profile.api;
 
-import com.example.Surplus_Exchange_Platform.admin.profile.dto.request.UpdateAdminProfileRequest;
-import com.example.Surplus_Exchange_Platform.admin.profile.dto.response.AdminProfileResponse;
+import com.example.Surplus_Exchange_Platform.seller.profile.dto.request.UpdateSellerProfileRequest;
+import com.example.Surplus_Exchange_Platform.seller.profile.dto.response.SellerProfileResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
@@ -9,21 +9,21 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 
 @Tag(
-        name = "Admin Profile",
-        description = "Admin Profile Management Endpoints"
+        name = "Seller Profile",
+        description = "Seller Profile Management Endpoints"
 )
-public interface AdminProfileApi {
+public interface SellerProfileApi {
 
     @Operation(
-            summary = "Get Admin Profile",
-            description = "Get the authenticated administrator's profile")
-    ResponseEntity<AdminProfileResponse> getMyProfile(
+            summary = "Get Seller Profile",
+            description = "Get the authenticated Seller's profile")
+    ResponseEntity<SellerProfileResponse> getMyProfile(
             Authentication authentication);
 
     @Operation(
-            summary = "Update Admin Profile",
-            description = "Update the authenticated administrator's profile")
-    ResponseEntity<AdminProfileResponse> updateMyProfile(
-            @Valid UpdateAdminProfileRequest request,
+            summary = "Update Seller Profile",
+            description = "Update the authenticated Seller's profile")
+    ResponseEntity<SellerProfileResponse> updateMyProfile(
+            @Valid UpdateSellerProfileRequest request,
             Authentication authentication);
 }

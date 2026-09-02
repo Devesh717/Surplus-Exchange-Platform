@@ -34,6 +34,19 @@ import AIAssistantPage from "./ai/pages/AiPage/AiPage";
 import SellerApplicationPage from "./seller/pages/SellerApplicationPage";
 import SellerApplicationSubmittedPage from "./seller/pages/SellerApplicationSubmittedPage";
 
+import WishlistPage from "./wishlist/customer/pages/WishlistPage";
+
+import AboutPage from "./home/customer/pages/About/AboutPage";
+
+import HowItWorksPage from "./home/customer/pages/HowItWorks/HowItWorks";
+import ContactPage from "./home/customer/pages/Contact/ContactPage";
+import HelpCentrePage from "./home/customer/pages/HelpCentre/HelpCentre";
+import AboutSurplusExchangePage from "./home/customer/pages/AboutSuplusExchange/AboutSurplusExchangePage";
+
+import UserProfilePage
+  from "./user/profile/pages/UserProfile/UserProfilePage";
+
+
 import "./App.css";
 
 
@@ -172,6 +185,48 @@ function App() {
             element={<HomePage />}
           />
 
+          {/* ==================================================
+              ABOUT
+          ================================================== */}
+          <Route
+  path="/about"
+  element={<AboutPage />}
+/>
+
+
+{/* ==================================================
+              HOW IT WORKS
+          ================================================== */}
+<Route
+  path="/how-it-works"
+  element={<HowItWorksPage />}
+/>
+
+{/* ==================================================
+              CONTACT
+          ================================================== */}
+
+<Route
+  path="/contact"
+  element={<ContactPage />}
+/>
+
+{/* ==================================================
+              HELP CENTRE
+          ================================================== */}
+
+<Route path="/help-centre" element={<HelpCentrePage />} />
+
+
+{/* ==================================================
+              ABOUT SURPLUS EXCHANGE
+          ================================================== */}
+
+<Route
+  path="/about-surplus-exchange"
+  element={<AboutSurplusExchangePage />}
+/>
+
 
           {/* ==================================================
               AUTH
@@ -286,6 +341,15 @@ function App() {
             element={<AIAssistantPage />}
           />
 
+          {/* ==================================================
+              WISHLIST
+          ================================================== */}
+          <Route 
+          path="/wishlist" 
+          element={<WishlistPage />} 
+          />
+
+
 
           {/* ==================================================
               BECOME SELLER
@@ -354,6 +418,18 @@ function App() {
               </AdminAccessGuard>
             }
           />
+
+          {/* USER DASHBOARD */}
+<Route
+  path="/dashboard"
+  element={<UserDashboardPage />}
+/>
+
+{/* USER PROFILE */}
+<Route
+  path="/user/profile"
+  element={<UserProfilePage />}
+/>
 
 
           {/* ==================================================

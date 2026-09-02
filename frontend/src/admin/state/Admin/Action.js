@@ -32,6 +32,10 @@ import {
   ADMIN_PENDING_PRODUCTS_REQUEST,
   ADMIN_PENDING_PRODUCTS_SUCCESS,
   ADMIN_PENDING_PRODUCTS_FAILURE,
+
+  ADMIN_PRODUCT_REQUEST,
+  ADMIN_PRODUCT_SUCCESS,
+  ADMIN_PRODUCT_FAILURE,
 } from "./ActionType";
 
 
@@ -365,6 +369,44 @@ export const verifyProduct =
 
       dispatch({
         type: ADMIN_VERIFICATION_FAILURE,
+        payload: message,
+      });
+
+      throw error;
+    }
+  };
+
+  /*
+ * ============================================
+ * ADMIN PRODUCT DETAILS
+ * ============================================
+ */
+export const getAdminProduct =
+  (productId) =>
+  async (dispatch) => {
+    dispatch({
+      type: ADMIN_PRODUCT_REQUEST,
+    });
+
+    try {
+      const data =
+        await AdminApi.getProduct(productId);
+
+      dispatch({
+        type: ADMIN_PRODUCT_SUCCESS,
+        payload: data,
+      });
+
+      return data;
+    } catch (error) {
+      const message =
+        error?.response?.data?.message ||
+        error?.response?.data?.error ||
+        error?.message ||
+        "Unable to load product details.";
+
+      dispatch({
+        type: ADMIN_PRODUCT_FAILURE,
         payload: message,
       });
 

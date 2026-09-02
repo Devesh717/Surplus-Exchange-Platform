@@ -55,11 +55,12 @@ export default function SellerVerification() {
   try {
     setActionLoading(sellerId);
 
-    console.log("Approving seller:", sellerId);
+    console.log("Approving seller using User ID:", sellerId);
 
     await dispatch(
       verifySeller(sellerId, {
-        status: true,
+        verified: true,
+        reason: "Seller application approved after verification.",
       })
     );
 
@@ -81,11 +82,12 @@ const handleReject = async (sellerId) => {
   try {
     setActionLoading(sellerId);
 
-    console.log("Rejecting seller:", sellerId);
+    console.log("Rejecting seller using User ID:", sellerId);
 
     await dispatch(
       verifySeller(sellerId, {
-        status: false,
+        verified: false,
+        reason: "Seller application rejected after verification.",
       })
     );
 
@@ -241,9 +243,11 @@ const handleReject = async (sellerId) => {
 
               const sellerUser = seller.seller || {};
 
+              // Backend verification uses the associated User ID.
               const sellerId =
-                seller.id ??
-                seller.sellerId;
+                seller.seller?.id ??
+                seller.sellerId ??
+                seller.id;
 
               const sellerName =
                 sellerUser.name ||
@@ -278,7 +282,7 @@ const handleReject = async (sellerId) => {
                       </h3>
 
                       <p>
-                        Seller ID: #{sellerId}
+                        User ID: #{sellerId}
                       </p>
 
                     </div>

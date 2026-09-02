@@ -59,6 +59,9 @@ export function useAuth() {
       try {
         const response = await authApi.login(credentials);
 
+        console.log("LOGIN RESPONSE:", response);
+console.log("LOGIN NAME:", response?.name);
+
         localStorage.setItem(
           "se_token",
           response.token
@@ -69,12 +72,24 @@ export function useAuth() {
           response.role
         );
 
+        if (response.name) {
+  localStorage.setItem("se_name", response.name);
+}
+
         if (response.userId) {
           localStorage.setItem(
             "se_user_id",
             response.userId
           );
         }
+
+        // Store email verification status
+if (response.emailVerified !== undefined) {
+  localStorage.setItem(
+    "se_email_verified",
+    String(response.emailVerified)
+  );
+}
 
         dispatch({
           type: AUTH_LOGIN_SUCCESS,
@@ -104,7 +119,7 @@ export function useAuth() {
         localStorage.removeItem("se_token");
         localStorage.removeItem("se_role");
         localStorage.removeItem("se_user_id");
-
+        localStorage.removeItem("se_email_verified");
         dispatch({
           type: AUTH_LOGOUT,
         });

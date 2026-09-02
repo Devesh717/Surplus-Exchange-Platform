@@ -5,11 +5,15 @@ import com.example.Surplus_Exchange_Platform.admin.dto.request.UpdateVerificatio
 import com.example.Surplus_Exchange_Platform.admin.dto.response.AdminUserResponse;
 import com.example.Surplus_Exchange_Platform.admin.dto.response.VerificationResponse;
 import com.example.Surplus_Exchange_Platform.admin.service.interfaces.AdminService;
+import com.example.Surplus_Exchange_Platform.product.entity.Product;
+import com.example.Surplus_Exchange_Platform.seller.entity.Seller;
 import jakarta.validation.Valid;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/admin")
@@ -52,5 +56,30 @@ public class AdminController implements AdminApi {
                 adminService.verifyProduct(
                         productId,
                         request));
+    }
+
+    @GetMapping("/products/{productId}")
+    public ResponseEntity<Product> getProduct(
+            @PathVariable Long productId) {
+
+        return ResponseEntity.ok(
+                adminService.getProductById(productId)
+        );
+    }
+
+    @GetMapping("/sellers/pending")
+    public ResponseEntity<List<Seller>> getPendingSellerApplications() {
+
+        return ResponseEntity.ok(
+                adminService.getPendingSellerApplications()
+        );
+    }
+
+    @GetMapping("/products/pending")
+    public ResponseEntity<List<Product>> getPendingProducts() {
+
+        return ResponseEntity.ok(
+                adminService.getPendingProducts()
+        );
     }
 }

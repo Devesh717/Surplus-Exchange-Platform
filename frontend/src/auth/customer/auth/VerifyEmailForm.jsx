@@ -1,14 +1,30 @@
 import React, { useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import {
+  Link,
+  useLocation,
+  useNavigate,
+} from "react-router-dom";
 import { Loader2, Zap } from "lucide-react";
+import { useAuth } from "./AuthModel";
 import { authApi } from "../../state/Auth/Action";
 
 export default function VerifyEmailForm() {
   const location = useLocation();
   const navigate = useNavigate();
 
+  const { login } = useAuth();
+
   const [email, setEmail] = useState(
     location.state?.email || ""
+  );
+
+  /*
+   * Password is received only through React Router state.
+   *
+   * It is NOT stored in localStorage.
+   */
+  const [password] = useState(
+    location.state?.password || ""
   );
 
   const [otp, setOtp] = useState("");
@@ -18,6 +34,7 @@ export default function VerifyEmailForm() {
   );
 
   const [error, setError] = useState("");
+
   const [loading, setLoading] = useState(false);
 
   async function handleSubmit(event) {
@@ -26,9 +43,13 @@ export default function VerifyEmailForm() {
     setError("");
     setMessage("");
 
-    // Validate OTP
     if (!/^\d{6}$/.test(otp)) {
       setError("OTP must be exactly 6 digits.");
+      return;
+    }
+
+    if (!email.trim()) {
+      setError("Email address is required.");
       return;
     }
 
@@ -36,31 +57,143 @@ export default function VerifyEmailForm() {
 
     try {
       /*
-       * Backend receives:
-       *
-       * {
-       *   email: "jonaswoods@gmail.com",
-       *   otp: "123456"
-       * }
+       * STEP 1
+       * Verify email.
        */
-      const response = await authApi.verifyEmail({
+      const verificationResponse =
+        await authApi.verifyEmail({
+          email,
+          otp,
+        });
+
+      /*
+       * If your verification endpoint itself returns a JWT,
+       * we can use it directly.
+       */
+      if (verificationResponse?.token) {
+        localStorage.setItem(
+          "se_token",
+          verificationResponse.token
+        );
+
+        if (verificationResponse.role) {
+          localStorage.setItem(
+            "se_role",
+            verificationResponse.role
+          );
+        }
+
+        if (verificationResponse.userId) {
+          localStorage.setItem(
+            "se_user_id",
+            verificationResponse.userId
+          );
+        }
+
+        localStorage.setItem(
+          "se_email_verified",
+          "true"
+        );
+
+        window.dispatchEvent(
+          new Event("auth-changed")
+        );
+
+        setMessage(
+          verificationResponse.message ||
+            "Email verified successfully."
+        );
+
+        setTimeout(() => {
+          navigate("/overview", {
+            replace: true,
+          });
+        }, 800);
+
+        return;
+      }
+
+      /*
+       * STEP 2
+       *
+       * If verification only verifies the email and
+       * doesn't return a token, automatically log in
+       * using the credentials from registration.
+       */
+      if (!password) {
+        /*
+         * This can happen if the user directly opened
+         * /verify-email instead of coming from registration.
+         *
+         * In that case we cannot automatically log in.
+         */
+        setMessage(
+          verificationResponse?.message ||
+            "Email verified successfully."
+        );
+
+        setTimeout(() => {
+          navigate("/login", {
+            replace: true,
+            state: {
+              verified: true,
+              email,
+            },
+          });
+        }, 800);
+
+        return;
+      }
+
+      /*
+       * Automatically login.
+       *
+       * useAuth().login() already:
+       *
+       * - stores se_token
+       * - stores se_role
+       * - stores se_user_id
+       * - updates auth state
+       */
+      const loginResponse = await login({
         email,
-        otp,
+        password,
       });
 
+      /*
+       * Email has now definitely been verified.
+       */
+      localStorage.setItem(
+        "se_email_verified",
+        "true"
+      );
+
+      window.dispatchEvent(
+        new Event("auth-changed")
+      );
+
       setMessage(
-        response?.message ||
+        verificationResponse?.message ||
           "Email verified successfully."
       );
 
+      /*
+       * Small delay so the user can see the
+       * success message.
+       */
       setTimeout(() => {
-        navigate("/login", {
+        const destination =
+          loginResponse?.role === "ADMIN"
+            ? "/admin/dashboard"
+            : loginResponse?.role === "SELLER"
+            ? "/seller/dashboard"
+            : "/overview";
+
+        navigate(destination, {
           replace: true,
-          state: {
-            verified: true,
-          },
         });
-      }, 1200);
+      }, 800);
+
     } catch (err) {
       setError(
         err?.response?.data?.message ||
@@ -77,7 +210,7 @@ export default function VerifyEmailForm() {
       <div className="mx-auto flex min-h-[calc(100vh-5rem)] max-w-md items-center justify-center">
         <div className="w-full">
 
-          {/* Brand / Header */}
+          {/* Header */}
           <div className="mb-7 text-center">
 
             <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-600 to-indigo-600 text-white shadow-lg shadow-blue-200">
@@ -102,14 +235,14 @@ export default function VerifyEmailForm() {
             className="rounded-2xl border border-gray-200 bg-white p-7 shadow-xl shadow-gray-200/60"
           >
 
-            {/* Success Message */}
+            {/* Success */}
             {message && (
               <div className="mb-5 rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm font-medium text-emerald-700">
                 {message}
               </div>
             )}
 
-            {/* Error Message */}
+            {/* Error */}
             {error && (
               <div className="mb-5 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm font-medium text-red-700">
                 {error}
@@ -134,7 +267,7 @@ export default function VerifyEmailForm() {
                 onChange={(event) =>
                   setEmail(event.target.value)
                 }
-                placeholder="jonaswoods@gmail.com"
+                placeholder="you@example.com"
                 autoComplete="email"
                 className="w-full rounded-xl border border-gray-300 bg-white px-4 py-3 text-sm text-gray-900 outline-none transition placeholder:text-gray-400 focus:border-blue-500 focus:ring-4 focus:ring-blue-100"
               />
@@ -167,7 +300,7 @@ export default function VerifyEmailForm() {
                 }}
                 placeholder="123456"
                 autoComplete="one-time-code"
-                className="w-full rounded-xl border border-gray-300 bg-white px-4 py-3 text-center text-xl font-semibold tracking-[0.5em] text-gray-900 outline-none transition placeholder:text-gray-400 placeholder:tracking-[0.5em] focus:border-blue-500 focus:ring-4 focus:ring-blue-100"
+                className="w-full rounded-xl border border-gray-300 bg-white px-4 py-3 text-center text-xl font-semibold tracking-[0.5em] text-gray-900 outline-none transition placeholder:text-gray-400 focus:border-blue-500 focus:ring-4 focus:ring-blue-100"
               />
 
               <p className="mt-2 text-xs text-gray-500">
@@ -179,7 +312,7 @@ export default function VerifyEmailForm() {
             <button
               type="submit"
               disabled={loading}
-              className="flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 px-4 py-3 font-semibold text-white shadow-lg shadow-blue-200 transition hover:-translate-y-0.5 hover:from-blue-700 hover:to-indigo-700 disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0"
+              className="flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 px-4 py-3 font-semibold text-white shadow-lg shadow-blue-200 transition hover:-translate-y-0.5 hover:from-blue-700 hover:to-indigo-700 disabled:cursor-not-allowed disabled:opacity-60"
             >
               {loading && (
                 <Loader2
@@ -194,7 +327,7 @@ export default function VerifyEmailForm() {
             </button>
           </form>
 
-          {/* Back to Login */}
+          {/* Fallback */}
           <p className="mt-6 text-center text-sm text-gray-500">
             Already verified?{" "}
             <Link

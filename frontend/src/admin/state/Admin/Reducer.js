@@ -30,6 +30,10 @@ import {
   ADMIN_PENDING_PRODUCTS_REQUEST,
   ADMIN_PENDING_PRODUCTS_SUCCESS,
   ADMIN_PENDING_PRODUCTS_FAILURE,
+
+  ADMIN_PRODUCT_REQUEST,
+ADMIN_PRODUCT_SUCCESS,
+ADMIN_PRODUCT_FAILURE,
 } from "./ActionType";
 
 
@@ -73,6 +77,13 @@ export const initialAdminState = {
     loading: false,
     error: null,
   },
+
+  selectedProduct: null,
+
+product: {
+  loading: false,
+  error: null,
+},
 
   loading: {
     dashboard: false,
@@ -377,6 +388,40 @@ export default function adminReducer(
           error: action.payload,
         },
       };
+
+      // ==========================================
+// ADMIN PRODUCT DETAILS
+// ==========================================
+
+case ADMIN_PRODUCT_REQUEST:
+  return {
+    ...state,
+    selectedProduct: null,
+    product: {
+      loading: true,
+      error: null,
+    },
+  };
+
+case ADMIN_PRODUCT_SUCCESS:
+  return {
+    ...state,
+    selectedProduct: action.payload,
+    product: {
+      loading: false,
+      error: null,
+    },
+  };
+
+case ADMIN_PRODUCT_FAILURE:
+  return {
+    ...state,
+    selectedProduct: null,
+    product: {
+      loading: false,
+      error: action.payload,
+    },
+  };
 
 
     // ==========================================

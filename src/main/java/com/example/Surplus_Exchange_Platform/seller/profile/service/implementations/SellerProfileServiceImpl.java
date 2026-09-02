@@ -1,8 +1,8 @@
-package com.example.Surplus_Exchange_Platform.admin.profile.service.implementations;
+package com.example.Surplus_Exchange_Platform.seller.profile.service.implementations;
 
-import com.example.Surplus_Exchange_Platform.admin.profile.dto.request.UpdateAdminProfileRequest;
-import com.example.Surplus_Exchange_Platform.admin.profile.dto.response.AdminProfileResponse;
-import com.example.Surplus_Exchange_Platform.admin.profile.service.interfaces.AdminProfileService;
+import com.example.Surplus_Exchange_Platform.seller.profile.dto.request.UpdateSellerProfileRequest;
+import com.example.Surplus_Exchange_Platform.seller.profile.dto.response.SellerProfileResponse;
+import com.example.Surplus_Exchange_Platform.seller.profile.service.interfaces.SellerProfileService;
 import com.example.Surplus_Exchange_Platform.user.entity.Role;
 import com.example.Surplus_Exchange_Platform.user.entity.User;
 import com.example.Surplus_Exchange_Platform.user.repository.UserRepository;
@@ -10,39 +10,39 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
-public class AdminProfileServiceImpl
-        implements AdminProfileService {
+public class SellerProfileServiceImpl
+        implements SellerProfileService {
 
     private final UserRepository userRepository;
 
-    public AdminProfileServiceImpl(
+    public SellerProfileServiceImpl(
             UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
     @Override
     @Transactional(readOnly = true)
-    public AdminProfileResponse getMyProfile(
-            String adminEmail) {
+    public SellerProfileResponse getMyProfile(
+            String SellerEmail) {
 
-        User admin = getAdmin(adminEmail);
+        User Seller = getSeller(SellerEmail);
 
-        return toResponse(admin);
+        return toResponse(Seller);
     }
 
     @Override
     @Transactional
-    public AdminProfileResponse updateMyProfile(
-            String adminEmail,
-            UpdateAdminProfileRequest request) {
+    public SellerProfileResponse updateMyProfile(
+            String SellerEmail,
+            UpdateSellerProfileRequest request) {
 
-        User admin = getAdmin(adminEmail);
+        User Seller = getSeller(SellerEmail);
 
         String newEmail = request.getEmail()
                 .trim()
                 .toLowerCase();
 
-        if (!admin.getEmail().equalsIgnoreCase(newEmail)
+        if (!Seller.getEmail().equalsIgnoreCase(newEmail)
                 && userRepository.existsByEmail(newEmail)) {
 
             throw new IllegalArgumentException(
@@ -50,51 +50,51 @@ public class AdminProfileServiceImpl
         }
 
         boolean emailChanged =
-                !admin.getEmail()
+                !Seller.getEmail()
                         .equalsIgnoreCase(newEmail);
 
-        admin.setName(
+        Seller.setName(
                 request.getName().trim());
 
-        admin.setEmail(newEmail);
+        Seller.setEmail(newEmail);
 
         if (request.getPhoneNumber() != null) {
-            admin.setPhoneNumber(
+            Seller.setPhoneNumber(
                     request.getPhoneNumber().trim());
         }
 
         if (emailChanged) {
-            admin.setEmailVerified(false);
+            Seller.setEmailVerified(false);
         }
 
         return toResponse(
-                userRepository.save(admin));
+                userRepository.save(Seller));
     }
 
-    private User getAdmin(String email) {
+    private User getSeller(String email) {
 
-        User admin = userRepository.findByEmail(email)
+        User Seller = userRepository.findByEmail(email)
                 .orElseThrow(() ->
                         new IllegalArgumentException(
-                                "Admin not found"));
+                                "Seller not found"));
 
-        if (admin.getRole() != Role.ADMIN) {
+        if (Seller.getRole() != Role.SELLER) {
             throw new IllegalArgumentException(
-                    "Only admins can access admin profile");
+                    "Only Sellers can access Seller profile");
         }
 
-        return admin;
+        return Seller;
     }
 
-    private AdminProfileResponse toResponse(User admin) {
+    private SellerProfileResponse toResponse(User Seller) {
 
-        return new AdminProfileResponse(
-                admin.getId(),
-                admin.getName(),
-                admin.getEmail(),
-                admin.getPhoneNumber(),
-                admin.getRole(),
-                admin.isEmailVerified()
+        return new SellerProfileResponse(
+                Seller.getId(),
+                Seller.getName(),
+                Seller.getEmail(),
+                Seller.getPhoneNumber(),
+                Seller.getRole(),
+                Seller.isEmailVerified()
         );
     }
 }

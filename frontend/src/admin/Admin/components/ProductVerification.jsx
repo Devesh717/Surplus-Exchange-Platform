@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   Package,
   CheckCircle2,
@@ -254,6 +255,7 @@ function ProductCard({
   loading,
   onVerify,
 }) {
+    const navigate = useNavigate();
   const productId =
     product.id ??
     product.productId;
@@ -296,7 +298,9 @@ function ProductCard({
     "Not available";
 
   return (
-    <article className="product-verification-card">
+    <article className="product-verification-card"
+    onClick={() => navigate(`/admin/products/${productId}`)}
+    >
 
       {/* ==================================================
           CARD HEADER

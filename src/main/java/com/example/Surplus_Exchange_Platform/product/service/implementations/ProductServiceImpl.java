@@ -130,6 +130,25 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     @Transactional(readOnly = true)
+    public ProductResponse getMyProductById(
+            String sellerEmail,
+            Long id) {
+
+        User seller = getSeller(sellerEmail);
+
+        Product product =
+                productRepository.findById(id)
+                        .orElseThrow(() ->
+                                new IllegalArgumentException(
+                                        "Product not found"));
+
+        validateOwnership(product, seller);
+
+        return toResponse(product);
+    }
+
+    @Override
+    @Transactional(readOnly = true)
     public Page<ProductResponse> getMyProducts(
             String sellerEmail,
             Pageable pageable) {

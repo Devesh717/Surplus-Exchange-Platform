@@ -90,20 +90,23 @@ export const AdminApi = {
     }),
 
   // ==============================
-  // PRODUCT VERIFICATION
-  // ==============================
+// PRODUCT VERIFICATION
+// ==============================
 
-  getPendingProducts: async () => {
-    const data = await request("/admin/products/pending");
+getPendingProducts: async () => {
+  const data = await request("/admin/products/pending");
 
-    return normalizeList(data);
-  },
+  return normalizeList(data);
+},
 
-  verifyProduct: (productId, data) =>
-    request(`/admin/products/${productId}/verification`, {
-      method: "PUT",
-      body: JSON.stringify(data),
-    }),
+getProduct: (productId) =>
+  request(`/admin/products/${productId}`),
+
+verifyProduct: (productId, data) =>
+  request(`/admin/products/${productId}/verification`, {
+    method: "PUT",
+    body: JSON.stringify(data),
+}),
 
   // ==============================
   // ORDERS

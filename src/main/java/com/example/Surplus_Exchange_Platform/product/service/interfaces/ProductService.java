@@ -19,6 +19,9 @@ public interface ProductService {
     Page<ProductResponse> getByCategory(
             Long categoryId,
             Pageable pageable);
+    ProductResponse getMyProductById(
+            String sellerEmail,
+            Long id);
 
     Page<ProductResponse> getMyProducts(
             String sellerEmail,

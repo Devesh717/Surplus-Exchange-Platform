@@ -19,63 +19,154 @@ import org.springframework.web.bind.annotation.*;
 )
 public interface ProductApi {
 
+    // =====================================================
+    // CREATE PRODUCT
+    // =====================================================
+
     @Operation(
             summary = "Create Product",
             description = "Create a product listing as an authenticated seller"
     )
     @ApiResponses({
-            @ApiResponse(responseCode = "200", description = "Product created successfully"),
-            @ApiResponse(responseCode = "400", description = "Invalid request"),
-            @ApiResponse(responseCode = "403", description = "Seller access required")
+            @ApiResponse(
+                    responseCode = "200",
+                    description = "Product created successfully"
+            ),
+            @ApiResponse(
+                    responseCode = "400",
+                    description = "Invalid request"
+            ),
+            @ApiResponse(
+                    responseCode = "403",
+                    description = "Seller access required"
+            )
     })
     ResponseEntity<ProductResponse> create(
             @Valid @RequestBody CreateProductRequest request,
-            jakarta.servlet.http.HttpServletRequest servletRequest);
+            jakarta.servlet.http.HttpServletRequest servletRequest
+    );
+
+
+    // =====================================================
+    // GET PUBLIC PRODUCT
+    // =====================================================
 
     @Operation(
             summary = "Get Product",
-            description = "Get an active product by ID"
+            description = "Get an active and verified product by ID"
     )
     @ApiResponses({
-            @ApiResponse(responseCode = "200", description = "Product found"),
-            @ApiResponse(responseCode = "404", description = "Product not found")
+            @ApiResponse(
+                    responseCode = "200",
+                    description = "Product found"
+            ),
+            @ApiResponse(
+                    responseCode = "404",
+                    description = "Product not found"
+            )
     })
-    ResponseEntity<ProductResponse> getById(@PathVariable Long id);
+    ResponseEntity<ProductResponse> getById(
+            @PathVariable Long id
+    );
+
+
+    // =====================================================
+    // GET ALL PRODUCTS
+    // =====================================================
 
     @Operation(
             summary = "Browse Products",
-            description = "Browse active products with pagination"
+            description = "Browse active and verified products with pagination"
     )
-    ResponseEntity<Page<ProductResponse>> getAll(Pageable pageable);
+    ResponseEntity<Page<ProductResponse>> getAll(
+            Pageable pageable
+    );
+
+
+    // =====================================================
+    // GET PRODUCTS BY CATEGORY
+    // =====================================================
 
     @Operation(
             summary = "Get Products By Category",
-            description = "Get active products belonging to a category"
+            description = "Get active and verified products belonging to a category"
     )
     ResponseEntity<Page<ProductResponse>> getByCategory(
             @PathVariable Long categoryId,
-            Pageable pageable);
+            Pageable pageable
+    );
+
+
+    // =====================================================
+    // GET MY PRODUCTS
+    // =====================================================
 
     @Operation(
             summary = "Get My Products",
-            description = "Get the authenticated seller's active products"
+            description = "Get all products belonging to the authenticated seller"
     )
     ResponseEntity<Page<ProductResponse>> getMyProducts(
             Pageable pageable,
-            jakarta.servlet.http.HttpServletRequest servletRequest);
+            jakarta.servlet.http.HttpServletRequest servletRequest
+    );
+
+
+    // =====================================================
+    // GET MY PRODUCT BY ID
+    // =====================================================
+
+    @Operation(
+            summary = "Get My Product By ID",
+            description = "Get a product owned by the authenticated seller, including pending or unverified products"
+    )
+    @ApiResponses({
+            @ApiResponse(
+                    responseCode = "200",
+                    description = "Product found"
+            ),
+            @ApiResponse(
+                    responseCode = "403",
+                    description = "Seller is not authorized to access this product"
+            ),
+            @ApiResponse(
+                    responseCode = "404",
+                    description = "Product not found"
+            )
+    })
+    ResponseEntity<ProductResponse> getMyProductById(
+            @PathVariable Long id,
+            jakarta.servlet.http.HttpServletRequest servletRequest
+    );
+
+
+    // =====================================================
+    // UPDATE PRODUCT
+    // =====================================================
 
     @Operation(
             summary = "Update Product",
             description = "Update a product owned by the authenticated seller"
     )
     @ApiResponses({
-            @ApiResponse(responseCode = "200", description = "Product updated successfully"),
-            @ApiResponse(responseCode = "403", description = "Not authorized")
+            @ApiResponse(
+                    responseCode = "200",
+                    description = "Product updated successfully"
+            ),
+            @ApiResponse(
+                    responseCode = "403",
+                    description = "Not authorized"
+            )
     })
     ResponseEntity<ProductResponse> update(
             @PathVariable Long id,
             @Valid @RequestBody UpdateProductRequest request,
-            jakarta.servlet.http.HttpServletRequest servletRequest);
+            jakarta.servlet.http.HttpServletRequest servletRequest
+    );
+
+
+    // =====================================================
+    // DELETE PRODUCT
+    // =====================================================
 
     @Operation(
             summary = "Delete Product",
@@ -83,5 +174,6 @@ public interface ProductApi {
     )
     ResponseEntity<Void> delete(
             @PathVariable Long id,
-            jakarta.servlet.http.HttpServletRequest servletRequest);
+            jakarta.servlet.http.HttpServletRequest servletRequest
+    );
 }

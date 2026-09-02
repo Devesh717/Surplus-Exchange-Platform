@@ -72,6 +72,21 @@ public class ProductController implements ProductApi {
         );
     }
 
+    @GetMapping("/seller/{id}")
+    public ResponseEntity<ProductResponse> getMyProductById(
+            @PathVariable Long id,
+            HttpServletRequest servletRequest) {
+
+        Authentication authentication =
+                (Authentication) servletRequest.getUserPrincipal();
+
+        return ResponseEntity.ok(
+                productService.getMyProductById(
+                        authentication.getName(),
+                        id)
+        );
+    }
+
     @Override
     @GetMapping("/seller/me")
     public ResponseEntity<Page<ProductResponse>> getMyProducts(

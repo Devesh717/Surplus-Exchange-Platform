@@ -1,10 +1,10 @@
-package com.example.Surplus_Exchange_Platform.admin.profile.dto.request;
+package com.example.Surplus_Exchange_Platform.seller.profile.dto.request;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 
-public class UpdateAdminProfileRequest {
+public class UpdateSellerProfileRequest {
 
     @NotBlank
     @Size(max = 100)
